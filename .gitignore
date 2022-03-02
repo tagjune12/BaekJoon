@@ -92,3 +92,5 @@ Thumbs.db
 
 # 텍스트파일 전체 제외
 *.txt
+
+src/inputTest.js

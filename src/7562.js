@@ -7,8 +7,6 @@ const dy = [-2, -1, 1, 2, 2, 1, -1, -2]; // row
 
 const numOfTestCase = parseInt((iterator.next()).value);
 
-
-
 for (let trying = 0; trying < numOfTestCase; trying++) {
     const size = parseInt((iterator.next()).value);
     const [startRow, startCol] = (iterator.next()).value.split(' ').map(v => +v);
