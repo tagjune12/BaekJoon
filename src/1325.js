@@ -46,6 +46,7 @@ for (const key in graph) {
     const temp = dfs(parseInt(key));
     numOfHacked[parseInt(key)] = temp;
 }
+
 const max = Math.max(...numOfHacked);
 const answer = [];
 numOfHacked.forEach((value, index) => {

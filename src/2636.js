@@ -18,13 +18,13 @@ const checkOutOfMatrix = (curRow, curCol) => {
     if (curRow >= 0 && curCol >= 0 && curRow < row && curCol < col) return true;
     else return false;
 }
+
 const countLeftCheese = () => {
     let count = 0;
 
     for (let i = 0; i < row; i++) {
         count += matrix[i].filter(value => value === 1).length;
     }
-
 
     return count;
 }
