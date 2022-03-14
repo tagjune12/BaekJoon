@@ -1,9 +1,8 @@
 // 연구소
-// console.time('check');
 let fs = require('fs');
-let input = fs.readFileSync('./example.txt').toString().split('\n');
-const [n, m] = input.shift().split(" ").map(v => +v);
-let matrix = input.map(arr => arr.split(" ").map(x => +x));
+let input = fs.readFileSync('./example.txt').toString().trim().split('\n');
+const [n, m] = input[0].split(' ').map((v) => Number(v));
+let matrix = input.slice(1).map((v) => v.split(' ').map((v) => Number(v)));
 
 const emptySpace = [];
 matrix.forEach((arr, row) => arr.map((value, col) => {
@@ -99,4 +98,3 @@ for (const combination of combinations) {
 }
 answer = answer.toString();
 console.log(answer);
-// console.timeEnd('check');

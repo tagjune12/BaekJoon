@@ -43,7 +43,7 @@ while (queue.length !== curIndex) {
 for (let i = 0; i < m; i++) {
     if (graph[i].includes(0)) {
         console.log(-1);
-        return;
+        break;
     }
 }
 
