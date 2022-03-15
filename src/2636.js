@@ -1,5 +1,4 @@
 // 치즈
-const { count } = require('console');
 let fs = require('fs');
 let input = fs.readFileSync('./example.txt').toString().split('\n');
 const [row, col] = input.shift().split(" ").map(v => +v);
