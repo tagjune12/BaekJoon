@@ -54,8 +54,6 @@ const bfs = (lab) => {
                 queue.push([nextRow, nextCol]);
                 lab[nextRow][nextCol] = 2;
             }
-
-
         }
     }
 
@@ -92,9 +90,9 @@ for (const combination of combinations) {
 
 
     // 원상복구
-    lab[row1][col1] = 1;
-    lab[row2][col2] = 1;
-    lab[row3][col3] = 1;
+    lab[row1][col1] = 0;
+    lab[row2][col2] = 0;
+    lab[row3][col3] = 0;
 }
 answer = answer.toString();
 console.log(answer);

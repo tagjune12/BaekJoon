@@ -15,7 +15,7 @@ let misfortune = 0;
 let leftHouse = k;
 
 const bfs = (start) => {
-    let queue = [...start];
+    let queue = [...start]; // [[0,0],[3,3]]
     const visited = new Set([...start.map(value => value[0])]);
 
     let idx = 0;
@@ -26,7 +26,7 @@ const bfs = (start) => {
             // if (visited.has(nextPosition) === false && (-maxLength <= nextPosition && nextPosition <= maxLength)) {
             if (visited.has(nextPosition) === false) {
 
-                queue[queue.length] = [nextPosition, pond];;
+                queue[queue.length] = [nextPosition, pond];
                 // visited[visited.length] = nextPosition;
                 visited.add(nextPosition);
                 misfortune += Math.abs(pond - nextPosition)
