@@ -3,6 +3,7 @@
 // let input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
 let input = require('fs').readFileSync('./example.txt').toString().trim().split('\n');
 const [n, m] = input.shift().split(" ").map(x => +x);
+
 const map = [];
 const d = [];
 const s = [];
@@ -31,8 +32,10 @@ for (const element of input) {
     s.push(b);
 }
 
+
+
 function checkCross(row, col) {
-    const arr = [[row - 1, col - 1], [row + 1, col + 1], [row + 1, col - 1], [row - 1, col + 1]]
+    const arr = [[row - 1, col - 1], [row + 1, col + 1], [row + 1, col - 1], [row - 1, col + 1]];
 
     return arr.filter(value => (value[0] >= 0 && value[1] >= 0 && value[0] < n && value[1] < n) && (map[value[0]][value[1]] > 0)).length;
 }
@@ -83,5 +86,6 @@ const answer = map.reduce((acc, arr) => {
         return acc2 + value;
     })
 }, 0)
+
 console.log(answer);
 

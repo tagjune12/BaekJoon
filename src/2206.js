@@ -58,7 +58,7 @@
 
 // }
 
-// // 벽 부수고 이동하기
+// 벽 부수고 이동하기
 // 메모리 초과
 // let input = require('fs').readFileSync('./example.txt').toString().trim().split('\n');
 // // let input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
@@ -242,9 +242,6 @@ isVisited[0][0] = true;
 let q = new Queue();
 q.push([0, 0, 1, false]);
 
-function check(y, x) {
-    return isVisited[y][x];
-}
 
 console.time("stamp");
 while (!q.empty()) {
