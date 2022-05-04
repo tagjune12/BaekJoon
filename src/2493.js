@@ -16,7 +16,7 @@ function solution() {
         };
 
         if (stack[stack.length - 1].height > tower.height) {
-            answer.push(stack.length ? stack[stack.length - 1].index + 1 : 0);
+            answer.push(stack[stack.length - 1].index + 1);
             stack.push(tower);
         } else {
             while (stack.length) {
@@ -30,9 +30,6 @@ function solution() {
             answer.push(stack.length ? stack[stack.length - 1].index + 1 : 0);
             stack.push(tower);
         }
-
-
-
     });
     return answer.join(" ");
 }
