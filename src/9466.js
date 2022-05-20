@@ -18,6 +18,8 @@ const solution = (T) => {
       visited[current] = true;
       const next = students[current];
 
+      // 1 4 7 6
+
       if (!visited[next]) dfs(next);
       else { // 다음 노드를 방문한적 있는 경우
         if (!finished[next]) { // 다음 노드로부터 사이클을 뽑아낸적 없는 경우
