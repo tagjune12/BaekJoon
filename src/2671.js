@@ -6,6 +6,7 @@ let input = require("fs").readFileSync("./example.txt").toString().trim();
 console.log(solution(input));
 
 function solution(signal) {
-    const pattern = new RegExp(/((100+1+)|01)+$/, 'g');
+    const pattern = new RegExp(/^((100+1+)|01)+$/, 'g');
+    console.log(signal.match(pattern));
     return signal.replace(pattern, "") ? "NOISE" : "SUBMARINE";
 }
