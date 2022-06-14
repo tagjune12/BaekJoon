@@ -94,3 +94,6 @@ Thumbs.db
 *.txt
 
 src/inputTest.js
+
+.vscode
+.idea
