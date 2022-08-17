@@ -97,3 +97,4 @@ src/inputTest.js
 
 .vscode
 .idea
+*.exe
