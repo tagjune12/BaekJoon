@@ -10,7 +10,7 @@ function solution() {
     for (let j = 0; j < SIZE; j++) {
       const row = input.shift().split(' ').map(element => +element);
       arr.push([...row]);
-      temp.push([...row])
+      temp.push([...row]);
     }
     // let temp2 = [];
     const clockWise = [
