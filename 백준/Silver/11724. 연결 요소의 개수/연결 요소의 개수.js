@@ -2,30 +2,36 @@ let input = require('fs').readFileSync('dev/stdin').toString().trim().split('\n'
 const [N, M] = input.shift().split(' ').map(v => +v);
 
 function solution() {
-  const node = Array.from(Array(N + 1), () => Array(N + 1).fill(0));
   let answer = 0;
+  const node = Array.from(Array(N + 1), () => []);
+  const visited = Array(N + 1).fill(false);
   input.forEach(connection => {
-    const [from, to] = connection.split(' ').map(v => +v);
-    node[from][to] = 1;
-    node[to][from] = 1;
+    const [from, to] = connection.split(' ');
+    node[+from].push(+to);
+    node[+to].push(+from);
   })
 
-  const visited = [];
-  const dfs = (current) => {
-    const next = node[current];
-    for (let i = 1; i <= N; i++) {
-      if (next[i] === 1 && !visited.includes(i)) {
-        visited.push(i);
-        dfs(i);
+  const bfs = (start) => {
+    const queue = [start];
+    visited[start] = true;
+
+    while (queue.length > 0) {
+      const currentNode = queue.shift();
+      const nextNodes = node[currentNode];
+      for (const nextNode of nextNodes) {
+        if (!visited[nextNode]) {
+          visited[nextNode] = true;
+          queue.push(nextNode);
+        }
       }
     }
-    return;
+    answer++;
   }
 
+
   for (let i = 1; i <= N; i++) {
-    if (!visited.includes(i)) {
-      dfs(i);
-      answer++;
+    if (!visited[i]) {
+      bfs(i);
     }
   }
 
