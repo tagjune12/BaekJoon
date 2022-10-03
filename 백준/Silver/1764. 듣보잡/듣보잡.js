@@ -3,25 +3,27 @@ let input = require('fs').readFileSync(path).toString().trim().split('\n');
 
 function solution() {
   const [N, M] = input.shift().split(' ').map(v => +v);
-  const people = {};
+  const neverSeen = new Set();
+  const neverHeard = new Set();
 
   for (let i = 0; i < N; i++) {
-    people[input[i]] = 1;
+    neverHeard.add(input[i]);
   }
 
   for (let i = N; i < N + M; i++) {
-    people[input[i]] = people[input[i]] ? people[input[i]] + 1 : 1;
+    neverSeen.add(input[i]);
   }
 
-  const answer = [];
-  for (const name in people) {
-    if (people[name] === 2) {
-      answer.push(name);
+  const interSection = new Set();
+
+  for (const elem of neverHeard) {
+    if (neverSeen.has(elem)) {
+      interSection.add(elem);
     }
   }
-  answer.sort();
-  console.log(answer.length);
-  answer.forEach(name => console.log(name));
+
+  console.log(interSection.size);
+  [...interSection].sort().forEach(v => console.log(v));
 }
 
 solution();
