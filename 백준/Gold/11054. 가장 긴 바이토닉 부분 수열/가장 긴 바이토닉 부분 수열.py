@@ -1,29 +1,27 @@
-#  11054번 - 가장 긴 바이토닉 부분 수열
-N = int(input())
+import sys
+from bisect import bisect_left
 
-List = list(map(int, input().split()))
+N = int(sys.stdin.readline().rstrip())
+seq = list(map(int,sys.stdin.readline().rstrip().split(' ')))
 
-dp1 = [1]*N
-dp2 = [1]*N
+asc_dp = [1] * N
+for i in range(1,N):
+  for j in range(i):
+    if seq[j] < seq[i]:
+      asc_dp[i] = max(asc_dp[i], asc_dp[j]+1)
 
-sub_len=[0]*N
+reverse_seq = seq[::-1]
+desc_dp = [1]*N
+for i in range(1,N):
+  for j in range(i):
+    if reverse_seq[j] < reverse_seq[i]:
+      desc_dp[i] = max(desc_dp[i], desc_dp[j]+1)
 
-Max=0
+desc_dp.reverse()
 
-for i in range(N):
-    for j in range(i):
-        if List[i] > List[j]:
-            dp1[i] = max(dp1[i], dp1[j]+1)
-
-List.reverse()
-
-for i in range(N):
-    for j in range(i):
-        if List[i]>List[j]:
-            dp2[i]=max(dp2[i],dp2[j]+1)
-dp2.reverse()
+answer = 0
 
 for i in range(N):
-    sub_len[i]=dp1[i]+dp2[i]
+  answer = max(answer, asc_dp[i] + desc_dp[i]-1)
 
-print(max(sub_len)-1)
+print(answer)
